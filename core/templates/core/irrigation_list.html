@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Irrigation Log</h2>
+{% for log in logs %}
+  <article class="list-item">
+    <h3>{{ log.date_time|date:'Y-m-d H:i' }}</h3>
+    <p>{{ log.field }} · {{ log.crop }}</p>
+    <p>{{ log.water_liters }} L for {{ log.duration_min }} min</p>
+    <p>{{ log.notes }}</p>
+  </article>
+{% empty %}
+  <p>No irrigation entries.</p>
+{% endfor %}
+{% endblock %}

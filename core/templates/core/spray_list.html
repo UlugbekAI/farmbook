@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Spray Log</h2>
+{% for spray in sprays %}
+  <article class="list-item">
+    <h3>{{ spray.date_time|date:'Y-m-d H:i' }}</h3>
+    <p>{{ spray.field }} · {{ spray.crop }}</p>
+    <p>Target: {{ spray.target_issue|default:'General treatment' }}</p>
+    {% for item in spray.mix_items.all %}
+      <p>• {{ item.product.name }} — {{ item.dose_text }}</p>
+    {% empty %}
+      <p>No mix items.</p>
+    {% endfor %}
+  </article>
+{% empty %}
+  <p>No spray entries.</p>
+{% endfor %}
+{% endblock %}
