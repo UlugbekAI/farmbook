@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if group == 'protection' %}Plant Protection{% else %}Fertilizers{% endif %}</h2>
+{% for product in products %}
+  <article class="list-item">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.category.name }}</p>
+    <p>{{ product.active_ingredient }}</p>
+    <p>{{ product.formulation }}</p>
+  </article>
+{% empty %}
+  <p>No products yet.</p>
+{% endfor %}
+{% endblock %}

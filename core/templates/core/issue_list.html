@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Issues</h2>
+{% for issue in issues %}
+  <article class="list-item">
+    <h3>{{ issue.name }}</h3>
+    <p><strong>{{ issue.get_kind_display }}</strong> · {{ issue.crop }}</p>
+    <p>{{ issue.short_description }}</p>
+  </article>
+{% empty %}
+  <p>No issues yet.</p>
+{% endfor %}
+{% endblock %}

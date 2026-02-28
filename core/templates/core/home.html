@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="grid">
+  <a class="card" href="{% url 'issues' %}"><h2>Issues</h2><p>{{ issues_count }} records</p></a>
+  <a class="card" href="{% url 'plant_protection' %}"><h2>Plant Protection</h2><p>{{ protection_count }} products</p></a>
+  <a class="card" href="{% url 'fertilizers' %}"><h2>Fertilizers</h2><p>{{ fertilizer_count }} products</p></a>
+  <a class="card" href="{% url 'irrigation' %}"><h2>Irrigation</h2><p>{{ irrigation_count }} logs</p></a>
+  <a class="card" href="{% url 'sprays' %}"><h2>Sprays</h2><p>{{ spray_count }} logs</p></a>
+</section>
+{% endblock %}
